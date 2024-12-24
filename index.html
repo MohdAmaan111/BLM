@@ -33,6 +33,9 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- jQuery FIle -->
+    <script src="assets/jquery/jquery.min.js"></script>
   </head>
 
   <body class="index-page">
@@ -557,6 +560,7 @@
                 action="https://api.web3forms.com/submit"
                 method="post"
                 class="php-email-form"
+                id="sendMessage"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
@@ -616,6 +620,7 @@
 
                     <button type="submit">Send Message</button>
                   </div>
+                  <div id="result"></div>
                 </div>
               </form>
             </div>
@@ -661,5 +666,77 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/jquery/sweetalert.min.js"></script>
   </body>
 </html>
+
+<script>
+  $(document).ready(function () {
+    // alert("jQuery is successfully loaded and working!");
+  });
+
+  const form = document.getElementById("sendMessage");
+  const result = document.getElementById("result");
+  $("#sendMessage").on("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+    // result.innerHTML = "Please wait...";
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          // result.innerHTML = json.message;
+
+          // SweetAlert success message
+          swal({
+            title: "Message Submitted Successfully!",
+            icon: "success",
+            button: "OK",
+          }).then(() => {
+            // Reload the page after the alert is closed
+            window.location.reload();
+          });
+        } else {
+          // console.log(response);
+          // result.innerHTML = json.message;
+          swal({
+            title: "Something went wrong!",
+            icon: "warning",
+            button: "OK",
+          }).then(() => {
+            // Reload the page after the alert is closed
+            window.location.reload();
+          });
+        }
+      })
+      .catch((error) => {
+        // console.log(error);
+        // result.innerHTML = "Something went wrong!";
+        swal({
+          title: "Something went wrong!",
+          icon: "warning",
+          button: "OK",
+        }).then(() => {
+          // Reload the page after the alert is closed
+          window.location.reload();
+        });
+      })
+      .then(function () {
+        form.reset();
+        setTimeout(() => {
+          result.style.display = "none";
+        }, 3000);
+      });
+  });
+</script>
