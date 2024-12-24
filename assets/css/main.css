@@ -559,7 +559,10 @@ h6 {
   bottom: 15px;
 }
 
-.whatsapp {
+/*--------------------------------------------------------------
+# WhatsApp Link Button
+--------------------------------------------------------------*/
+.wa-container .whatsapp {
   width: 60px;
   height: 60px;
   font-size: 36px;
@@ -567,10 +570,46 @@ h6 {
   border-radius: 50%;
   text-align: center;
   position: fixed;
-  right: 25px;
-  bottom: 10px;
+  right: 30px;
+  bottom: 25px;
   background-color: #25d366;
   z-index: 99;
+}
+
+.wa-container .whatsapp:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  -webkit-animation: pulse-border 1500ms ease-out infinite;
+  animation: pulse-border 1500ms ease-out infinite;
+}
+
+.wa-container .whatsapp:focus {
+  border: none;
+  outline: none;
+}
+
+@keyframes pulse-border {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  } 
 }
 
 /*--------------------------------------------------------------
