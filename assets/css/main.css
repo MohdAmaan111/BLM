@@ -701,6 +701,20 @@ section,
   position: relative;
 }
 
+.section-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/img/splash.png');
+  background-size: cover; /* Ensures the image covers the area */
+  background-position: center; /* Centers the image */
+  opacity: 1; /* Adjust the transparency of the image */
+  z-index: 1; /* Ensures it is behind the text */
+}
+
 .section-title h2 {
   font-size: 14px;
   font-weight: 500;
@@ -711,6 +725,7 @@ section,
   text-transform: uppercase;
   color: color-mix(in srgb, var(--default-color), transparent 50%);
   position: relative;
+  z-index: 2;
 }
 
 .section-title h2::after {
