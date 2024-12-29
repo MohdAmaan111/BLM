@@ -91,36 +91,84 @@
 
     <main class="main">
       <!---------- Modal ---------->
-      <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+      <div
+        class="modal fade"
+        id="bookingModal"
+        tabindex="-1"
+        aria-labelledby="bookingModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <!-- Add modal-dialog-centered here -->
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="bookingModalLabel">Book Service</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
               <!-- Booking Form -->
               <form id="bookingForm">
-                <div class="mb-3">
-                  <label for="serviceName" class="form-label">Service Name</label>
-                  <input type="text" class="form-control" id="serviceName" placeholder="Enter service name" required>
-                </div>
+                <!-- Name Input -->
                 <div class="mb-3">
                   <label for="customerName" class="form-label">Your Name</label>
-                  <input type="text" class="form-control" id="customerName" placeholder="Enter your name" required>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="customerName"
+                    placeholder="Enter your name"
+                    required
+                  />
                 </div>
+                <!-- Service Dropdown -->
                 <div class="mb-3">
-                  <label for="customerEmail" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="customerEmail" placeholder="Enter your email" required>
+                  <label for="serviceList" class="form-label"
+                    >Select a Service</label
+                  >
+                  <select class="form-select" id="service" required>
+                    <option value="" selected disabled>
+                      Choose a service...
+                    </option>
+                    <option value="Plumbing Service">Plumbing Service</option>
+                    <option value="Electrical Service">
+                      Electrical Service
+                    </option>
+                  </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <!-- Address Input -->
+                <div class="mb-3">
+                  <label for="customerAddress" class="form-label"
+                    >Address</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="address"
+                    rows="3"
+                    placeholder="Enter your address"
+                    required
+                  ></textarea>
+                </div>
+                <!-- Submit Button -->
+                <div class="text-center">
+                  <button
+                    type="submit"
+                    class="btn btn-primary submit"
+                    onclick="bookNow()"
+                  >
+                    Book Now
+                  </button>
+                </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-      
       <!---------- Modal End ---------->
+
       <!-- Hero Section -->
       <section
         id="hero"
@@ -299,9 +347,14 @@
               <!-- <a href="#" class="read-more"
                 ><span>Read More</span><i class="bi bi-arrow-right"></i
               ></a> -->
-              <a href="#" class="read-more"
-                ><span>Book Now</span><i class="bi bi-arrow-right"></i
-              ></a>
+              <a
+                href="#"
+                class="read-more"
+                data-bs-toggle="modal"
+                data-bs-target="#bookingModal"
+              >
+                <span>Book Now</span><i class="bi bi-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -357,7 +410,7 @@
                   href="service-electric.html"
                   class="stretched-link text-center"
                 >
-                  <h3>Electrical Repair Service</h3>
+                  <h3>Electrical Service</h3>
                 </a>
                 <div class="text-center mb-4">
                   <p>We provide top-quality electrical repair services.</p>
@@ -1165,4 +1218,17 @@
         }, 3000);
       });
   });
+
+  function bookNow() {
+    let num = "6393690754";
+
+    let name = document.getElementById("customerName").value;
+    let service = document.getElementById("service").value;
+    let address = document.getElementById("address").value;
+
+    var url = "//wa.me/" + num + "?text=" + "Name : " + name + "%0a" + "Service : " + service + "%0a" + "Address : " + address + "%0a%0a";
+
+    // Open the URL in a new tab  
+    window.open(url, '_blank').focus();
+  }
 </script>

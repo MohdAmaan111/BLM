@@ -2587,3 +2587,12 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+
+.submit {
+  border: none;
+  background-color: var(--accent-color);
+}
+
+.submit:hover {
+  background-color: var(--bg-accent-color);
+}
