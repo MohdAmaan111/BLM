@@ -90,6 +90,37 @@
     </header>
 
     <main class="main">
+      <!---------- Modal ---------->
+      <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="bookingModalLabel">Book Service</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Booking Form -->
+              <form id="bookingForm">
+                <div class="mb-3">
+                  <label for="serviceName" class="form-label">Service Name</label>
+                  <input type="text" class="form-control" id="serviceName" placeholder="Enter service name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="customerName" class="form-label">Your Name</label>
+                  <input type="text" class="form-control" id="customerName" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="customerEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="customerEmail" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!---------- Modal End ---------->
       <!-- Hero Section -->
       <section
         id="hero"
@@ -129,7 +160,7 @@
           <div class="carousel-item">
             <div class="carousel-container">
               <h2 class="animate__animated animate__fadeInDown">
-                LARGEST HOME SERVICE PROVIDER
+                Largest Home Service Provider
               </h2>
               <p class="animate__animated animate__fadeInUp">
                 Quick | Affordable | Trusted
@@ -200,28 +231,13 @@
             ></path>
           </defs>
           <g class="wave1">
-            <use
-              xlink:href="#wave-path"
-              x="50"
-              y="3"
-              style="fill: #0088ff"
-            ></use>
+            <use xlink:href="#wave-path" x="50" y="3"></use>
           </g>
           <g class="wave2">
-            <use
-              xlink:href="#wave-path"
-              x="50"
-              y="0"
-              style="fill: #004e92"
-            ></use>
+            <use xlink:href="#wave-path" x="50" y="0"></use>
           </g>
           <g class="wave3">
-            <use
-              xlink:href="#wave-path"
-              x="50"
-              y="9"
-              style="fill: #055398"
-            ></use>
+            <use xlink:href="#wave-path" x="50" y="9"></use>
           </g>
         </svg>
       </section>
@@ -280,8 +296,11 @@
                 Market, where our team's dedication and expertise come together
                 to turn your vision into reality.
               </p>
-              <a href="#" class="read-more"
+              <!-- <a href="#" class="read-more"
                 ><span>Read More</span><i class="bi bi-arrow-right"></i
+              ></a> -->
+              <a href="#" class="read-more"
+                ><span>Book Now</span><i class="bi bi-arrow-right"></i
               ></a>
             </div>
           </div>
@@ -725,7 +744,8 @@
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
                     <span
-                      >Very amazing experience with Doorstep Home Repair! Low cost 24/7 home appliance repair service at doorstep.</span
+                      >Very amazing experience with Doorstep Home Repair! Low
+                      cost 24/7 home appliance repair service at doorstep.</span
                     >
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
@@ -755,7 +775,9 @@
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
                     <span
-                      >Doorstep Home Repair, your maintenance technician was friendly, professional prompt. Worldclass certified engineers, guranteed work!</span
+                      >Doorstep Home Repair, your maintenance technician was
+                      friendly, professional prompt. Worldclass certified
+                      engineers, guranteed work!</span
                     >
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
@@ -786,7 +808,10 @@
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
                     <span
-                      >Thanks for the ontime service and the fast response. Very satisfied work with genuine price. I can't find a service like you anyone else. Great job, Doorstep home Repairs.</span
+                      >Thanks for the ontime service and the fast response. Very
+                      satisfied work with genuine price. I can't find a service
+                      like you anyone else. Great job, Doorstep home
+                      Repairs.</span
                     >
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
@@ -817,8 +842,8 @@
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
                     <span
-                      >I took the Kitchen Cleaning services of Urbanwale to get
-                      my kitchen cleaned. The work that was done by them was
+                      >I took the Kitchen Cleaning services of BLM to get my
+                      kitchen cleaned. The work that was done by them was
                       absolutely professional and of a great standard.
                     </span>
                     <i class="bi bi-quote quote-icon-right"></i>
@@ -849,9 +874,9 @@
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
                     <span
-                      >I Have taken Cleaning Services from Urbanwale, There work
-                      was excellent, they did a Great Job my Kitchen and
-                      Washroom get cleaned perfectly.</span
+                      >I Have taken Cleaning Services from BLM, There work was
+                      excellent, they did a Great Job my Kitchen and Washroom
+                      get cleaned perfectly.</span
                     >
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
