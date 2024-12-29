@@ -1226,9 +1226,25 @@
     let service = document.getElementById("service").value;
     let address = document.getElementById("address").value;
 
-    var url = "//wa.me/" + num + "?text=" + "Name : " + name + "%0a" + "Service : " + service + "%0a" + "Address : " + address + "%0a%0a";
+    // Check if any field is empty
+    if (name === "" || service === "" || address === "") {
+      return; // Stop further execution
+    }
+    var url =
+      "//wa.me/" +
+      num +
+      "?text=" +
+      "Name : " +
+      name +
+      "%0a" +
+      "Service : " +
+      service +
+      "%0a" +
+      "Address : " +
+      address +
+      "%0a%0a";
 
-    // Open the URL in a new tab  
-    window.open(url, '_blank').focus();
+    // Open the URL in a new tab
+    window.open(url, "_blank").focus();
   }
 </script>
